@@ -106,4 +106,6 @@ will produce the output
 The output for the corresponding submission file would be (1, 5, 3, 495, 436, 3).
 from a linux command line.
 
+## License
 
+Apache 2.0

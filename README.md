@@ -83,6 +83,8 @@ For the submission, we expect a zip file back that, when unpacked, decomposes in
 where now each file 2018mmdd_100bins.h5 contains a uint8 tensor of shape (5, 3, 495, 436, 3) that contains the 5 predictions of 3 successive images
 following the 5 sequences of 12 non-zero images given in the files of the Berlin/Berlin_test, Istanbul/Istanbul_test and Moscow/Moscow_test directories
 of the competition data.
+The submission file can uploaded [here](https://www.iarai.ac.at/traffic4cast/competitions/traffic4cast-2019-core/).
+
 
 ### create_submissiontest_like.py -i input_directory -o output_directory -v value or "random"
 This script clones the submission folder structure and file names it finds in the subfolders Berlin/Berlin_test, Istanbul/Istanbul_test and Moscow/Moscow_test of the input_folder 

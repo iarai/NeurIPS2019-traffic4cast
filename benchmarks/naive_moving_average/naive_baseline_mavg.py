@@ -27,6 +27,9 @@ import sys, getopt
 import h5py
 
 cities = ['Berlin','Istanbul','Moscow']
+# The following indicies are the start indicies of the 3 images to predict in the 288 time bins (0 to 287)
+# in each daily test file. These are time zone dependent. Berlin lies in UTC+2 whereas Istanbul and Moscow
+# lie in UTC+3.
 utcPlus2 = [30, 69, 126, 186, 234]
 utcPlus3 = [57, 114, 174,222, 258]
 

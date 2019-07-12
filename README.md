@@ -106,6 +106,11 @@ will produce the output
 The output for the corresponding submission file would be (1, 5, 3, 495, 436, 3).
 from a linux command line.
 
+### eval.py -g path_to_eval_folder1 -s path_to_eval_folder2 -o output_folder -p prefix
+This script assumes that the folders provided via the -g (golden) and -s (submitted) options contain the submission file format structure and compares
+these two - file by file, city by city and overall - by calculating the corresponding MSE. The results are output in 3 files with file name prefix.score, prefix.extended_score
+and prefix.log that contain the overall MSE, the overall MSE per city and the individual MSEs, respectively.
+
 ## License
 
 Apache 2.0

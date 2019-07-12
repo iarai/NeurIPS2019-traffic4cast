@@ -98,7 +98,7 @@ will produce the submission file "constant_zero_submission.zip" in the same dire
 This script expects an h5 file and will print out the tensor shape. For the test files in the competition data folder, for instance, 
 ```
 python3 h5file.py -i path_to_competition_files/Berlin/Berlin_test/20180102_100m_bins.h5
-"""
+```
 will produce the output 
 ```
 (1, 288, 495, 436, 3)

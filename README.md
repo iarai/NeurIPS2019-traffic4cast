@@ -1,10 +1,10 @@
-# Traffic4cast benchmarks and submission utilities
+# Traffic4cast benchmarks and submission utilities for core competition.
 
 ## Introduction
 
-The aim of our core competition is to predict the next 3 images in our traffic movies, which encode
-the volume, speed and direction of observed traffic in each 100m x 100m grid within a 5min interval
-into an RGB pixel colour as described for Berlin, Istanbul and Moscow.
+The aim of our core competition is to predict the next 3 images (5 times on a given test day) 
+in our traffic movies, which encode the volume, speed and direction of observed traffic in each 100m x 100m grid 
+within a 5min interval into an RGB pixel colour, as described, for Berlin, Istanbul and Moscow.
 
 The submission format for the 5 sequences of 3 images in each day of the test set is a multi-dimensional
 array (tensor) of shape (5,3,495,436,3) and the objective function of all submitted tensors (one for each day
@@ -17,9 +17,19 @@ by dividing the pixel colour value (between 0 and 255) by 255.
 The attached code provides the following benchmarks.
 
 ### Submission of only zeros.
-Given that many pixel values are (0,0,0) (given the absence of drivable road network in the underlying 100mx100m area) just submitting
-all zero values will result in many of the terms in the above MSE calculation to be zero. Use the create_submissiontest_like.py script in utils
-to generate the necessary submission file as described.
+Given that many pixel values are (0,0,0) (mostly due to absence of drivable road network in the underlying 100mx100m area) just submitting
+all zero values will result in many of the terms in the MSE calculation to be zero. Use the create_submissiontest_like.py script in utils
+to generate the necessary submission file as described, via
+```
+python3 create_submissiontest_like -i <path to competition data> -o ./test_submission_data_with_constant_zero -v 0
+```
+which creats the output directory "test_submission_data_with_constant_zero" in the current directory. Then produce a submission file, for instance
+via
+```
+cd test_submission_data_with_constant_zero; zip -r ../constant_zero_submission.zip .; cd ..
+```
+which creates the submission file "constant_zero_submission.zip" (in the original current folder). You can submit this file to the competition as a test via
+[here](https://www.iarai.ac.at/traffic4cast/competitions/traffic4cast-2019-core/)
 
 ### Simple average of 3 previous images.
 Our second benchmark is the prediction obtained by averaging the 3 previous image pixel values in all colour channels to obtain an estimate
@@ -27,10 +37,15 @@ of the next image's corresponding value. Use the script "naive_baseline_mavg.py"
 an output folder and then zip that folder as show below into a submission file.
 
 ### Seq2Seq network taking 3 input images and predicting the next 3 trained on entire training data.
-Code will be released in due course.
+The file "baseline_seq2seq.py" contains a sample training code for 2 layered ConvLSTM Seq2Seq model which is trained on two GPUs. The syntax to run train this model is
+```
+python3 baseline_seq2seq.py -d <path to competition data> -m <directory in which model checkpoints are saved> -l <path to log file> - c <city to be trained>
+```
+We will provide trained parameters and a submission file generation script in due course.
 
 ### Seq2Seq network taking 3 input images and predicting the next 3 trained only on the corresponding time slots for the submission.
-Code will be released in due course.
+The script "baseline_seq2seq_foc_train.py" is nearly the same script as "baseline_seq2seq.py", execpt it restricts training only to those time windows to be predicted 
+in our competition. It has the same syntax as the script above and a submission file generator is provided in due course.  
 
 
 ## Submission guide.

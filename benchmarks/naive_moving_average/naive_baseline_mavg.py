@@ -85,7 +85,7 @@ def cast_moving_avg(data):
         t = np.mean(data_slice, axis = 1)
         t = np.expand_dims(t, axis = 1)
         prediction.append(t)
-        data = np.concatenate(prediction, axis =1)
+        data = np.concatenate([data, t], axis = 1)
 
     prediction = np.concatenate(prediction, axis = 1)
     prediction = np.around(prediction)

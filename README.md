@@ -12,6 +12,9 @@ in the test set list and each city) is the mean squared error of all pixel chann
 values derived from true observations. We note that we normalize these pixel colour values to lie between 0 and 1
 by dividing the pixel colour value (between 0 and 255) by 255.
 
+## Competition website
+Please find further details on traffic4cast 2019 competition (now closed) [here](https://www.iarai.ac.at/traffic4cast/)
+
 ## Benchmarks
 
 The attached code provides the following benchmarks.
@@ -118,7 +121,7 @@ python3 h5file.py -i path_to_competition_files/Berlin/Berlin_test/20180102_100m_
 ```
 will produce the output 
 ```
-(1, 288, 495, 436, 3)
+(288, 495, 436, 3)
 ```
 The output for the corresponding submission file would be (1, 5, 3, 495, 436, 3).
 from a linux command line.

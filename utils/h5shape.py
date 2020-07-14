@@ -31,7 +31,7 @@ def load_test_file(file_path):
     data = list(fr[a_group_key])
 
     # get relevant test cases
-    data = [data[0:]]
+    data = data[0:]
     data = np.stack(data,axis=0)
     # transpose
     return data

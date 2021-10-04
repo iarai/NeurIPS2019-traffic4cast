@@ -131,6 +131,18 @@ This script assumes that the folders provided via the -g (golden) and -s (submit
 these two - file by file, city by city and overall - by calculating the corresponding MSE. The results are output in 3 files with file name prefix.score, prefix.extended_score
 and prefix.log that contain the overall MSE, the overall MSE per city and the individual MSEs, respectively.
 
+## Citation
+You can find a description of our competition data, of winning approaches and insights we gained during our 2019 Traffic4cast competition in the following
+reference. Please also cite it if you want to refer to this competition.
+```
+@inproceedings{Kreil2019TheSE,
+  title={The surprising efficiency of framing geo-spatial time series forecasting as a video prediction task - Insights from the IARAI Traffic4cast Competition at NeurIPS 2019},
+  author={David P. Kreil and Michael Kopp and David Jonietz and Aleksandra Gruca and Pedro Herruzo and Ali Soleymani and Sepp Hochreiter and Raia Hadsell},
+  booktitle={NeurIPS},
+  year={2019}
+}
+```
+
 ## License
 
 Apache 2.0
